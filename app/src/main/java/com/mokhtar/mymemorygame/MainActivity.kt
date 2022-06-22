@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
 
         clRoot=findViewById(R.id.clRoot)
 
+        val intent =Intent(this,CreateActivity::class.java)
+        intent.putExtra(EXTRA_BOARD_SIZE,BoardSize.MEDIUM)
+        startActivity(intent)
 
         setupBoard()
     }
@@ -92,7 +95,7 @@ class MainActivity : AppCompatActivity() {
             }
             // navigate user to a new activity for to create a new memory game board
             val intent = Intent (this,CreateActivity::class.java)
-            intent.putExtra(EXTRA_BOARD_SIZE,boardSize)
+            intent.putExtra(EXTRA_BOARD_SIZE,desiredBoradSize)
             startActivityForResult(intent, CREATE_REQUEST_CODE)
 
         })
